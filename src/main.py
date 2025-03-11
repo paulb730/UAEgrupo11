@@ -10,6 +10,9 @@ y módulos, y estructuras de datos.
 """
 """Funciones administrar el inventario de la tienda"""
 
+print("Hola mundo")
 
+
+""" Aqui solo se ejecuta el metodo main como JAVA  """
 
 

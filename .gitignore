@@ -1,0 +1,46 @@
+# Byte-compiled / compiled Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Logs and debug files
+*.log
+*.out
+*.err
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE and editor settings
+.vscode/
+*.swp
+*.swo
+
+# PIP dependency file (if used for local setup)
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment variables and credentials (if applicable)
+.env
+*.env
+config.json
+secrets.json
+
+
+
+
+
