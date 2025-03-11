@@ -9,8 +9,25 @@ y módulos, y estructuras de datos.
 
 """
 """Funciones administrar el inventario de la tienda"""
+import time
+def atrapartuplas(tupla:tuple):
+    listadetuplas=[]
+    noson=[]
+    for i in range(len(tupla)):
+        print("loading...") 
+        if str(type(tupla[i]).__name__)=="tuple":
+            for j in tupla[i]:
+                listadetuplas.append(j)
+                time.sleep(0.1)
+        if str(type(tupla[i]).__name__)!="tuple":
+            noson.append(tupla[i])
+               
+    print(f"Los elementos que estan dentro de  tuplas son  {listadetuplas} y los que no son {noson}")   
+         
+tupla=[(1,"pivot","a","b","asd"),2,("asdasd","dos",[12,13]),"a","c",(3,1,2,"tupla"),("1",1,"0","0",0),[1,2,7,10]]
 
-print("Hola mundo")
+atrapartuplas(tupla)
+            
 
 
 """ Aqui solo se ejecuta el metodo main como JAVA  """
