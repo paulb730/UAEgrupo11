@@ -28,7 +28,11 @@ tupla=[(1,"pivot","a","b","asd"),2,("asdasd","dos",[12,13]),"a","c",(3,1,2,"tupl
 
 atrapartuplas(tupla)
             
+print("hola mundo")
 
+"""
+
+"""
 
 """ Aqui solo se ejecuta el metodo main como JAVA  """
 
