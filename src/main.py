@@ -11,7 +11,11 @@ y módulos, y estructuras de datos.
 """Funciones administrar el inventario de la tienda"""
 
             
+print("hola mundo")
 
+"""
+
+"""
 
 
 
