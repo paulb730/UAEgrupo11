@@ -14,8 +14,20 @@ y módulos, y estructuras de datos.
 print("hola mundo")
 
 """
+tres primeras funciones Paul
 
 """
+
+"""
+tres sieguientes funciones Cami
+
+"""
+"""
+tres sieguientes funciones Marco
+
+"""
+
+
 
 
 

@@ -14,14 +14,17 @@
    i)	Generar alerta para stock bajo
 5) Generar reportes: Reportes periódicos que incluya:
    i)	Total productos
-   ii)	Productos más vendidos
-   iii)	Productos con stock bajo
-6) Menú:  while > bucle / if – elif – else > opciones
+   ii)	Productos más vendidos opcional
+6) iii)	Productos con stock bajo
+7)
+8) Menú:  while > bucle / if – elif – else > opciones
    a)	Agregar producto
-   b)	Actualizar producto
+9)  b)	Actualizar producto
    c)	Eliminar producto
    d)	Ver inventario
    e)	Buscar productos
-   f)	Revisar Stock
+   f)	Control de Stock critico
    g)	Crear reporte
    h)	Salir: rompe el bucle
+10) i)      Salida producto
+11)
