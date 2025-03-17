@@ -19,9 +19,47 @@ tres primeras funciones Paul
 """
 
 """
-tres sieguientes funciones Cami
+tres sieguientes funciones Cami:
+    
+   3) Visualización inventario:
+        Definir mostrar inventario
+            Print mostar inventario tabulado, enunciados
+            
+            IDEA DE CÓDIGO:
+                def mostrar_inventario():
+                    if not inventario:
+                        print("El inventario está vacío.")
+                        return
+                    for codigo, info in inventario():
+                        print
+                (tabulate(inventario, headers="keys", tablefmt="grid"))
+            
+   4) Busqueda de producto
+        Definir buscar_producto
+            Variable inventario
+            Busqueda = input de “ingresar ID o nombre del producto”
+            Para el código (o ID) en el inventario
+            Si la Búsqueda del código o búsqueda de nombre 
+                Mostrar el detalle asociado al producto (Id, nombre, precio, cantidad)
+            En caso negativo, mostrar “ Producto no encontrado”
+            
+    5) Control de stock
+        Definir control_stock_crítico
+            Variable inventario
+            Para el código (o ID) en el inventario
+                Si la cantidad es menor a 10
+                    Mostrar alerta del producto: "nombre" "tiene bajo stock"
+                    
+                IDEA DE CÓDIGO:
+                    def control_stock_critico():
+                        inventario = cargar_inventario()
+                        for codigo, info in inventario():
+                            if info["cantidad"] < 10:
+                                print(f"ALERTA: El producto '{info['nombre']}' tiene bajo stock ({info['cantidad']} unidades).")
 
-"""
+""" 
+
+
 """
 tres sieguientes funciones Marco
 
