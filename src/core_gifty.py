@@ -35,10 +35,9 @@ Funciones base para el funcionamiento de la app  PAUL
         
 
 """
-import data_list as listagifty
+from data_list import Lista_Productos_Gifty as Inventario
 
-def GUIConsoleMENU():
-    return 0
+
 
 
 

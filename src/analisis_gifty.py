@@ -1,6 +1,5 @@
 """
 tres  funciones Marco:
-
 * Menú:  while > bucle / if – elif – else > opciones
   a)	Agregar producto
 * b)	Actualizar producto
@@ -12,7 +11,5 @@ tres  funciones Marco:
   h)	Salir: rompe el bucle
 * i)      Salida producto
 *
-          
-    
-
 """ 
+
