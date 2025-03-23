@@ -403,28 +403,3 @@ agregar()
 consultarproductos()
 actualizarproductos()
 eliminarproductos()
-#agregar()
-
-    
-
-
-
-    
-
-
-     
-
-   
-         
-    
-
-def consultarproductos():
-    return 0
-
-def actualizarproductos():
-    return 0
-
-def eliminarproductos():
-    return 0
-
-
