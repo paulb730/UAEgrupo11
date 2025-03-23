@@ -13,10 +13,10 @@ Lista_Productos_Gifty_BP:list=Lista_Productos_Gifty[:]
 
 """
 Estructura de producto
+cada producto es un diccionario
 El Código se generara automaticamente
-El ID dependera de su posicion en la lista + codigo generado 
-Tipo de producto se genera dependiendo su nombre 
-Ejemplo: telefono=movil
+Tipo de producto se genera dependiendo la asignacion que haga el cliente
+
 """
 
 tipoproducto={

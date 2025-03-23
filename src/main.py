@@ -11,6 +11,9 @@ y módulos, y estructuras de datos.
 
 
 #Solo llamar a la funcion main aqui 
+#La funcion main debe ser el menu del programa 
+#Siempre se debe agregar un producto pues el inventario esta vacio 
+#Todas las estructuras al momento de ejecucion estan vacias 
 
 def main():
     if __name__ == "__main__":
