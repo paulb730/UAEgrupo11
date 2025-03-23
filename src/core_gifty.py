@@ -43,7 +43,7 @@ import re
 #Esta funcion despliega un menu de tipos de productos 
 def tipoproductosmenu():
     
-    print("\n" )
+    
     
     lista=list(tipo.keys())
     for i in range(len(lista)):
@@ -55,48 +55,48 @@ def elegirtipoproducto(case,prod:dict):
     if case=='1':
         cat=lista[0]
         prod['tipoproducto']=cat
-        tipo['Tecnologia'].append(tuple([prod['codigo'],prod['nombre']]))
+        tipo['Tecnologia'].append(tuple([prod['nombre'],prod['precio'],prod['stock']]))
         
     elif case=='2':
         cat=lista[1]
         prod['tipoproducto']=cat
-        tipo['Ropa'].append(tuple([prod['codigo'],prod['nombre']]))
+        tipo['Ropa'].append(tuple([prod['nombre'],prod['precio'],prod['stock']]))
         
     elif case=='3':
         cat=lista[2]
         prod['tipoproducto']=cat
-        tipo['Hogar'].append(tuple([prod['codigo'],prod['nombre']]))
+        tipo['Hogar'].append(tuple([prod['nombre'],prod['precio'],prod['stock']]))
         
     elif case=='4':
         cat=lista[3]
         prod['tipoproducto']=cat
-        tipo['Alimentos'].append(tuple([prod['codigo'],prod['nombre']]))
+        tipo['Alimentos'].append(tuple([prod['nombre'],prod['precio'],prod['stock']]))
         
     elif case=='5':
         cat=lista[4]
         prod['tipoproducto']=cat
-        tipo['Automotirz'].append(tuple([prod['codigo'],prod['nombre']]))
+        tipo['Automotriz'].append(tuple([prod['nombre'],prod['precio'],prod['stock']]))
         
     elif case=='6':
         cat=lista[5]
         prod['tipoproducto']=cat
-        tipo['Salud'].append(tuple([prod['codigo'],prod['nombre']]))
+        tipo['Salud'].append(tuple([prod['nombre'],prod['precio'],prod['stock']]))
         
     elif case=='7':
         cat=lista[6]
         prod['tipoproducto']=cat
-        tipo['Libros'].append(tuple([prod['codigo'],prod['nombre']]))
+        tipo['Libros'].append(tuple([prod['nombre'],prod['precio'],prod['stock']]))
         
     elif case=='8':
         cat=lista[7]
         prod['tipoproducto']=cat
-        tipo['Juguetes'].append(tuple([prod['codigo'],prod['nombre']]))
+        tipo['Juguetes'].append(tuple([prod['nombre'],prod['precio'],prod['stock']]))
         
     else:
         print("Su Producto no se ha agregado a ninguna categoria")
         cat=lista[8]
         prod['tipoproducto']=cat
-        tipo['SinCategoria'].append(tuple([prod['codigo'],prod['nombre']]))
+        tipo['SinCategoria'].append(tuple([prod['nombre'],prod['precio'],prod['stock']]))
     
     return cat    
 #Esta funcion genera un codigo para cada producto
@@ -146,6 +146,9 @@ def imprimirtablas(data,prod,cant):
 #Esta funcion permite saber si el paquete externo ha sido instalado en un entorno de python
 def existe_este_paquete(nombrepaquete):
     return importlib.util.find_spec(nombrepaquete) is not None
+#Eliminar espacios de string
+def eliminar_espacios(tex:str):
+    return tex.replace(" ","").lower()
 #Esta funcion registra todos los campos del producto inventario
 def digitarproductos():
     print("****************Módulo Agregar Productos****************")
@@ -199,7 +202,7 @@ def digitarproductos():
     if len(Inventario)>0:
         for i in range(len(Inventario)):
             item=Inventario[i]
-            if nombre==item[1]:
+            if eliminar_espacios(nombre)==eliminar_espacios(item[1]):
                 print("Parece que agregaste un producto ya agregado anteriormente, se actualizara el stock, precio y descripcion") 
                 estaduplicado=True
                               
@@ -216,6 +219,7 @@ def digitarproductos():
         print("\n Ahora desea agregar su producto a una categoria:" )
         while flag:
             agregar=input( "Digite 1 para Si y 0 Para NO ")
+
             if agregar=='1':
                 #Añadir producto a un grupo
                 print("Estas son las opciones para agregar producto:")
@@ -236,21 +240,21 @@ def digitarproductos():
     else:
         for i in range(len(Inventario)):
             item=Inventario[i]
-            if nombre==item[1]:
-                
+            if eliminar_espacios(nombre)==eliminar_espacios(item[1]):
                 #transformo la tupla en lista para poder editarlo
                 listatemp=list(item)
                 listatemp[2]=desc
                 listatemp[4]=precio
-
                 oldstock=int(listatemp[5])
                 oldstock+=int(stock)
                 listatemp[5]=oldstock
+                print("oldstock:", oldstock )
                 Inventario[i]=tuple(listatemp)
                 print("producto actualizado",Inventario[i])
+
             #actualizo la tupla con los nuevos resultados
 # La busqueda la realiza el usuario por nombre por cantidad por descripcion y por categoria 
-def consultarproductos():
+def consultar():
     while True:
         print("\n Tipos de Consultas disponibles:")
         tiposconsultas=[' Por Nombre','Por Descripción','Por Categoria','Por stock','Salir']
@@ -262,13 +266,13 @@ def consultarproductos():
             print(f"Ha elegido {tiposconsultas[0]}")
             value=input("Ahora ingrese un nombre a consultar: ")
             buscado=[item for item in Inventario if bool(re.search(value,item[1],re.IGNORECASE))]
-            print("Este es el elemento buscado")
+            print(f"Este es el elemento buscado {buscado}")
             return buscado
         elif case=='2':
             print(f"Ha elegido {tiposconsultas[1]}")
             value=input("Ahora ingrese un descripcion a consultar: ")
             buscado=[item for item in Inventario if bool(re.search(value,item[2],re.IGNORECASE))]
-            print("Este es el elemento buscado")          
+            print(f"Este es el elemento buscado {buscado}")          
             return buscado
         elif case=='3':
             print(f"Ha elegido {tiposconsultas[2]}")
@@ -281,13 +285,13 @@ def consultarproductos():
             except (ValueError) as e:
                 print(f"no es un numero {e}")
             buscado=[item for item in Inventario if bool(re.search(listtempcat[value-1],item[3]))]
-            print(f"Los elementos de la categoria: {listtempcat[value-1]} son:")
+            print(f"Los elementos de la categoria: {listtempcat[value-1]} son: {buscado}")
             return buscado
         elif case=='4':
             print(f"Ha elegido {tiposconsultas[3]}")
             value=input("Ahora ingrese una cantidad a consultar en stock")
             buscado=[item for item in Inventario if bool(re.search(value,item[5],re.IGNORECASE)) ]
-            print(f"Este es el elemento buscado")
+            print(f"Este es el elemento buscado {buscado}")
             return buscado
         elif case=='5': 
             print("Saliendo")
@@ -312,21 +316,17 @@ def agregar():
                 print("Ingrese 1 para Si  o 0 para No: ")
             
     #imprimirtablas(Inventario,prod,100)
-    imprimirtablas(Inventario,prod,100)
-    imprimirtablas(tipo,tipo,100)
     #print("\nINVENTARIO", tabulate(Inventario[0:100],headers=tuple(prod.keys()),tablefmt="grid"))
     #print("PRODUCTOS POR CATEGORIA",tabulate(tipo,headers=tuple(tipo.keys()),tablefmt="grid"))
-def actualizarproductos():
+def actualizar():
     print("****************Módulo Actualizar Productos****************")
-    actualizarlist=consultarproductos()
-    print(actualizarlist)
+    actualizarlist=consultar()
+    
     print("El codigo y categoria no se puede editar")
     flag:bool=True
     oldstock:int=0
     for i in range(len(Inventario)):
-
         for item in actualizarlist:
-            
             print(f"\nEste elemento: {item} se actualizara")
             while flag:
                 nombre=input("Ingrese el Nombre del Producto: ") 
@@ -371,35 +371,36 @@ def actualizarproductos():
                 else:
                     print("El stock no puede ser vacio")      
         #Transformo tupla a lista a editarla 
-            listtemp=list(item)
-            listtemp[1]=nombre
-            listtemp[2]=desc
-            listtemp[4]=precio
-            oldstock=int(listtemp[5])
-            oldstock+=int(stock)
-            listtemp[5]=str(oldstock)
-            Inventario[i]=tuple(listtemp)
-            break
-        imprimirtablas(Inventario,prod,100)
-        break
-def eliminarproductos():
+            temp=Inventario[i]
+            if eliminar_espacios(temp[1])==eliminar_espacios(item[1]):
+                listtemp=list(item)
+                listtemp[1]=nombre
+                listtemp[2]=desc
+                listtemp[4]=precio
+                oldstock=int(listtemp[5])
+                oldstock+=int(stock)
+                listtemp[5]=str(oldstock)
+                Inventario[i]=tuple(listtemp)
+                break
+        break        
+def eliminar():
     print("****************Módulo Eliminar Productos****************")
     #primero llamar a consultar que producto deseaeliminar
     #primero hay que consultar el producto a eliminar 
-    eliminarlist=consultarproductos()
-    print(eliminarlist)
-    for item in eliminarlist:
-        print(f"\nEste elemento: {item} se eliminara")
-        try:
-            Inventario.remove(item)
-            print("Se eliminara solo el primer elemento encontrado")
-            imprimirtablas(Inventario,prod,100)
-                
-        except ValueError:
-            print(f"Error: {item} no fue encontrado en el inventario") 
+    if len(Inventario)>0:
+        eliminarlist=consultar()
+        print(eliminarlist)
+        for item in eliminarlist:
+            print(f"\nEste elemento: {item} se eliminara")
+            try:
+                Inventario.remove(item)
+                print("Se eliminara solo el primer elemento encontrado")
+                           
+            except ValueError:
+                print(f"Error: {item} no fue encontrado en el inventario") 
 
 #LLamado de la funcion para probar 
-agregar()
-consultarproductos()
-actualizarproductos()
-eliminarproductos()
+#agregar()
+#consultarproductos()
+#actualizarproductos()
+#eliminarproductos()

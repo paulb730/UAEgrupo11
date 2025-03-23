@@ -24,7 +24,7 @@ tipoproducto={
     "Ropa":[],
     "Hogar":[],
     "Alimentos":[],
-    "Automotirz":[],
+    "Automotriz":[],
     "Salud":[],
     "Libros":[],
     "Juguetes":[],

@@ -15,9 +15,8 @@ y módulos, y estructuras de datos.
 #Siempre se debe agregar un producto pues el inventario esta vacio 
 #Todas las estructuras al momento de ejecucion estan vacias 
 
-def main():
-    if __name__ == "__main__":
-        return 0
+from analisis_gifty import main
+main()
 
 
 
