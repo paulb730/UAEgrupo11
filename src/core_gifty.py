@@ -39,7 +39,7 @@ from data_list import Lista_Productos_Gifty as Inventario
 from data_list import producto as prod
 from data_list import tipoproducto as tipo
 import random
-#from tabulate import tabulate
+from tabulate import tabulate
 
 #Esta funcion despliega un menu de tipos de productos 
 def tipoproductosmenu():
