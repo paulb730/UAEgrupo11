@@ -14,6 +14,9 @@ y módulos, y estructuras de datos.
 #La funcion main debe ser el menu del programa 
 #Siempre se debe agregar un producto pues el inventario esta vacio 
 #Todas las estructuras al momento de ejecucion estan vacias 
+#Instalar pip install Tabulate para ejecutar la impresion de tablas
+
+
 
 from analisis_gifty import main
 main()
